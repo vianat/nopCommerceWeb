@@ -6,7 +6,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -48,6 +51,11 @@ public class DemoTest extends BaseClass {
 
     @Then("Make sure you see Log out button")
     public void makeSureYouSeeLogOutButton() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+       String actual = mp.logoutbtn.getText();
+       String expected="Log out";
+
+        assertEquals(actual, expected);
     }
 
 
