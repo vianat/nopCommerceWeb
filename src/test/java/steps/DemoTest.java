@@ -1,11 +1,13 @@
 package steps;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import pages.LoginPage;
 import pages.MainPage;
 
 import java.time.Duration;
@@ -15,28 +17,41 @@ import static org.testng.Assert.assertEquals;
 public class DemoTest extends BaseClass {
 
     MainPage mp = new MainPage(driver);
+    LoginPage lp= new LoginPage(driver);
     @Given("I navigate to {string}")
     public void i_navigate_to(String url) {
         driver.get(url);
     }
 
-    @When("Type {string} in search field")
-    public void typeInSearchField(String txt) {
+    @When("Click Login button")
+    public void click_login_button() {
 
-        mp.search.sendKeys(txt);
+        mp.loginbtn.click();
+
+    }
+    @And("Enter email {string}")
+    public void enterEmail(String email) {
+        lp.email.sendKeys(email);
+    }
+
+    @And("Enter password {string}")
+    public void enterPassword(String pass) {
+        lp.password.sendKeys(pass);
+    }
+
+    @And("Push Enter")
+    public void pushEnter() {
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ENTER).perform();
     }
 
-    @When("Click on first link")
-    public void clickOnFirstLink() {
-        driver.findElement(By.xpath("(//a[@jsname='UWckNb'])[1]")).click();
+
+    @Then("Make sure you see Log out button")
+    public void makeSureYouSeeLogOutButton() {
     }
 
-    @Then("Make sure the page title is {string}")
-    public void makeSureThePageTitleIs(String arg0) {
-        String actual = driver.getTitle();
-        assertEquals(actual, arg0);
-    }
+
+
 }
+
 

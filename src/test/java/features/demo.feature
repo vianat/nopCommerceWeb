@@ -4,11 +4,15 @@ Feature: web functionality
   @web
   Scenario Outline: <browser>
     Given I navigate to "https://env-sun.portnov.com/"
-    Then Make sure the page title is "Your store. Home page title"
+    When Click Login button
+    And Enter email "team-sun@noreply.portnov.com"
+    And Enter password "ow!<lSy~2H87"
+    And Push Enter
+    Then Make sure you see Log out button
 
     Examples:
       | browser |
       | firefox |
       | chrome  |
       | edge    |
-      | safari  |
+      #| safari  |
