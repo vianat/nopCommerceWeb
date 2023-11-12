@@ -8,8 +8,8 @@ import steps.BaseClass;
 
 public class MainPage extends BaseClass {
 
-    @FindBy(id = "APjFqb")
-    public WebElement search;
+    @FindBy(xpath = "//a[@class='ico-login']")
+    public WebElement loginbtn;
 
     public MainPage(WebDriver driver) {
         driver = BaseClass.driver;
