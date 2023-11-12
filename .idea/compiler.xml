@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="nopCommerceWeb" target="20" />
+      <module name="nopCommerceWeb" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>

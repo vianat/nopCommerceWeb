@@ -29,16 +29,22 @@ public class Hooks extends BaseClass {
 //		Properties prop = new Properties();
 //		prop.load(new FileInputStream(dir + "/src/test/java/resources/data.properties"));
 //		String browserName = prop.getProperty("browser");
-		switch (scenario.getName()) {
-			case "edge":
-				WebDriverManager.edgedriver().setup();
-				driver = new EdgeDriver();
-				break;
-			case "firefox":
-				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver();
-				break;
-			case "chrome":
+
+		if(systemName.contains("Windows")){
+			switch (scenario.getName()) {
+				case "edge":
+					WebDriverManager.edgedriver().setup();
+					driver = new EdgeDriver();
+					break;
+				case "firefox":
+					WebDriverManager.firefoxdriver().setup();
+					driver = new FirefoxDriver();
+					break;
+				case "safari":
+					WebDriverManager.safaridriver().setup();
+					driver = new SafariDriver();
+					break;
+				default:
 //				ChromeOptions options = new ChromeOptions();
 //				options.addArguments("--log-level=3");
 //				options.addArguments("--silent");
@@ -47,12 +53,31 @@ public class Hooks extends BaseClass {
 //				if (browserName.contains("headless")) {
 //					options.addArguments("headless");
 //				}
-				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
-		}
-		if(systemName.contains("MacOs")){
-				WebDriverManager.safaridriver().setup();
-				driver = new SafariDriver();
+					WebDriverManager.chromedriver().setup();
+					driver = new ChromeDriver();
+			}
+		} else {
+			switch (scenario.getName()) {
+				case "edge":
+					WebDriverManager.edgedriver().setup();
+					driver = new EdgeDriver();
+					break;
+				case "firefox":
+					WebDriverManager.firefoxdriver().setup();
+					driver = new FirefoxDriver();
+					break;
+				default:
+//				ChromeOptions options = new ChromeOptions();
+//				options.addArguments("--log-level=3");
+//				options.addArguments("--silent");
+//				options.addArguments("--headless");
+// 				run without UI
+//				if (browserName.contains("headless")) {
+//					options.addArguments("headless");
+//				}
+					WebDriverManager.chromedriver().setup();
+					driver = new ChromeDriver();
+			}
 		}
 
 //		driver.manage().deleteAllCookies(); // not working with safari

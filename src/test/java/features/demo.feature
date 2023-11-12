@@ -11,4 +11,4 @@ Feature: web functionality
       | firefox |
       | chrome  |
       | edge    |
-#      | safari  |
+      | safari  |
