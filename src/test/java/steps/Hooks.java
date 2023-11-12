@@ -23,6 +23,7 @@ public class Hooks extends BaseClass {
 
 	@Before
 	public void before(io.cucumber.java.Scenario scenario) {
+		final String systemName = System.getProperty("os.name");
 //		String browserName = context.getCurrentXmlTest().getParameter("browserName");
 //		String dir = System.getProperty("user.dir");
 //		Properties prop = new Properties();
@@ -37,11 +38,7 @@ public class Hooks extends BaseClass {
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
 				break;
-			case "safari":
-				WebDriverManager.safaridriver().setup();
-				driver = new SafariDriver();
-				break;
-			default:
+			case "chrome":
 //				ChromeOptions options = new ChromeOptions();
 //				options.addArguments("--log-level=3");
 //				options.addArguments("--silent");
@@ -52,6 +49,10 @@ public class Hooks extends BaseClass {
 //				}
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
+		}
+		if(systemName.contains("MacOs")){
+				WebDriverManager.safaridriver().setup();
+				driver = new SafariDriver();
 		}
 
 //		driver.manage().deleteAllCookies(); // not working with safari
