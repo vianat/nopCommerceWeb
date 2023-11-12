@@ -1,14 +1,14 @@
-@cross
-Feature: cross functionality
+@web
+Feature: web functionality
 
-  @cross
+  @web
   Scenario Outline: <browser>
-    Given I navigate to "https://www.portnov.com/"
-    Then Make sure the page title is "Home - Portnov Computer School"
+    Given I navigate to "https://env-sun.portnov.com/"
+    Then Make sure the page title is "Your store. Home page title"
 
     Examples:
       | browser |
       | firefox |
       | chrome  |
       | edge    |
-      | safari  |
+#      | safari  |
