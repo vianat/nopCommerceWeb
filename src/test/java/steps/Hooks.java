@@ -29,8 +29,30 @@ public class Hooks extends BaseClass {
 //		Properties prop = new Properties();
 //		prop.load(new FileInputStream(dir + "/src/test/java/resources/data.properties"));
 //		String browserName = prop.getProperty("browser");
-
 		if(systemName.contains("Windows")){
+			switch (scenario.getName()) {
+				case "edge":
+					WebDriverManager.edgedriver().setup();
+					driver = new EdgeDriver();
+					break;
+				case "firefox":
+					WebDriverManager.firefoxdriver().setup();
+					driver = new FirefoxDriver();
+					break;
+				case "chrome":
+//				ChromeOptions options = new ChromeOptions();
+//				options.addArguments("--log-level=3");
+//				options.addArguments("--silent");
+//				options.addArguments("--headless");
+// 				run without UI
+//				if (browserName.contains("headless")) {
+//					options.addArguments("headless");
+//				}
+					WebDriverManager.chromedriver().setup();
+					driver = new ChromeDriver();
+					break;
+			}
+		} else {
 			switch (scenario.getName()) {
 				case "edge":
 					WebDriverManager.edgedriver().setup();
@@ -44,7 +66,7 @@ public class Hooks extends BaseClass {
 					WebDriverManager.safaridriver().setup();
 					driver = new SafariDriver();
 					break;
-				default:
+				case "chrome":
 //				ChromeOptions options = new ChromeOptions();
 //				options.addArguments("--log-level=3");
 //				options.addArguments("--silent");
@@ -55,28 +77,7 @@ public class Hooks extends BaseClass {
 //				}
 					WebDriverManager.chromedriver().setup();
 					driver = new ChromeDriver();
-			}
-		} else {
-			switch (scenario.getName()) {
-				case "edge":
-					WebDriverManager.edgedriver().setup();
-					driver = new EdgeDriver();
 					break;
-				case "firefox":
-					WebDriverManager.firefoxdriver().setup();
-					driver = new FirefoxDriver();
-					break;
-				default:
-//				ChromeOptions options = new ChromeOptions();
-//				options.addArguments("--log-level=3");
-//				options.addArguments("--silent");
-//				options.addArguments("--headless");
-// 				run without UI
-//				if (browserName.contains("headless")) {
-//					options.addArguments("headless");
-//				}
-					WebDriverManager.chromedriver().setup();
-					driver = new ChromeDriver();
 			}
 		}
 

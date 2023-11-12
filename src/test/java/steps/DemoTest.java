@@ -28,10 +28,9 @@ public class DemoTest extends BaseClass {
 
     @When("Click Login button")
     public void click_login_button() {
-
         mp.loginbtn.click();
-
     }
+
     @And("Enter email {string}")
     public void enterEmail(String email) {
         lp.email.sendKeys(email);
@@ -48,18 +47,11 @@ public class DemoTest extends BaseClass {
         actions.sendKeys(Keys.ENTER).perform();
     }
 
-
     @Then("Make sure you see Log out button")
     public void makeSureYouSeeLogOutButton() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
-       String actual = mp.logoutbtn.getText();
-       String expected="Log out";
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        String actual = mp.logoutbtn.getText();
+        String expected="Log out";
         assertEquals(actual, expected);
     }
-
-
-
 }
-
-
