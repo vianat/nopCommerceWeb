@@ -25,7 +25,7 @@ public class WishlistTest extends BaseClass {
     MainPage mp = new MainPage(driver);
     WishListPage wp = new WishListPage(driver);
     JavascriptExecutor js = (JavascriptExecutor) driver;
-
+// sdsd
     @When("click Digital downloads")
     public DigitalDownloadsPage clickDigitalDownloads() {
         mp.digitalDownloads.click();
