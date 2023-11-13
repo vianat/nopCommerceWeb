@@ -22,7 +22,7 @@ import static org.testng.Assert.assertEquals;
 public class AddProduct extends BaseClass {
 
     CartPage cp = new CartPage(driver);
-    MainPage mp=new MainPage(driver);
+    MainPage mp = new MainPage(driver);
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
     @And("Click add to cart button")
@@ -32,13 +32,14 @@ public class AddProduct extends BaseClass {
 
     @And("Click shopping cart")
     public void clickShoppingCart() {
-    cp.shoppingcart.click();
+        cp.shoppingcart.click();
     }
 
     @Then("Verify the product is added")
     public void verifyTheProductIsAdded() {
         System.out.println("_-----------");
     }
+
     @And("Scroll down to element and click")
     public void scrollDownToElementAndClick() throws InterruptedException {
         WebElement element = mp.applemac;
