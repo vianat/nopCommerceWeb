@@ -15,7 +15,6 @@ public class LoginPage extends BaseClass {
     @FindBy(id="RememberMe")
     public WebElement rememberMe;
 
-
     public LoginPage(WebDriver driver) {
         driver = BaseClass.driver;
         PageFactory.initElements(driver, this);

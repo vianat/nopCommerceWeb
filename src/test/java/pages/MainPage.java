@@ -12,6 +12,10 @@ public class MainPage extends BaseClass {
     public WebElement loginbtn;
     @FindBy(xpath = "//a[@class='ico-logout']")
     public WebElement logoutbtn;
+    @FindBy(tagName = "h2")
+    public WebElement welcome;
+    @FindBy(xpath = "//*[contains(text(),'Digital downloads ')]")
+    public WebElement digitalDownloads;
 
     public MainPage(WebDriver driver) {
         driver = BaseClass.driver;
