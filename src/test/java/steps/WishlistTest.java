@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -23,7 +24,8 @@ public class WishlistTest extends BaseClass {
     DigitalDownloadsPage dd = new DigitalDownloadsPage(driver);
     MainPage mp = new MainPage(driver);
     WishListPage wp = new WishListPage(driver);
-
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+// sdsd
     @When("click Digital downloads")
     public DigitalDownloadsPage clickDigitalDownloads() {
         mp.digitalDownloads.click();
@@ -40,6 +42,7 @@ public class WishlistTest extends BaseClass {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@title='Close']")));
         driver.findElement(By.xpath("//span[@title='Close']")).click();
         Thread.sleep(1500);
+        js.executeScript("window.scrollBy(0,10)");
     }
 
     @And("open wishlist")

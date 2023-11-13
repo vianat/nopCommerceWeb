@@ -23,6 +23,7 @@ public class AddProduct extends BaseClass {
 
     CartPage cp = new CartPage(driver);
     MainPage mp = new MainPage(driver);
+
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
     @And("Click add to cart button")
@@ -42,13 +43,9 @@ public class AddProduct extends BaseClass {
 
     @And("Scroll down to element and click")
     public void scrollDownToElementAndClick() throws InterruptedException {
-        WebElement element = mp.applemac;
-
         js.executeScript("window.scrollBy(0,1000)");
         Thread.sleep(1200);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        element.click();
-
-
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", mp.applemac);
+        mp.applemac.click();
     }
 }
