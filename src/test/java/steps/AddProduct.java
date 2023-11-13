@@ -40,6 +40,7 @@ public class AddProduct extends BaseClass {
     public void verifyTheProductIsAdded() {
         System.out.println("_-----------");
     }
+
     @And("Scroll down to element and click")
     public void scrollDownToElementAndClick() throws InterruptedException {
         js.executeScript("window.scrollBy(0,1000)");
