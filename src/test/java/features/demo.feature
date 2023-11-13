@@ -8,7 +8,7 @@ Feature: web functionality
     And Enter email "team-sun@noreply.portnov.com"
     And Enter password "ow!<lSy~2H87"
     And Push Enter
-    Then Make sure you see Log out button
+    Then Make sure you see Log out button and text: "Welcome to our store"
 
     Examples:
       | browser |
