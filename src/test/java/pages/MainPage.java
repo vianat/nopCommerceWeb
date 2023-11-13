@@ -16,6 +16,8 @@ public class MainPage extends BaseClass {
     public WebElement welcome;
     @FindBy(xpath = "//*[contains(text(),'Digital downloads ')]")
     public WebElement digitalDownloads;
+    @FindBy(css = "div[class='item-grid'] div:nth-child(2) div:nth-child(1) div:nth-child(2) h2:nth-child(1) a:nth-child(1)")
+    public WebElement applemac;
 
     public MainPage(WebDriver driver) {
         driver = BaseClass.driver;
