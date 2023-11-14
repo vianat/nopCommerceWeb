@@ -1,5 +1,5 @@
 @web
-Feature: Add to cart functionality
+Feature: TEAM2-27 Registered User able to delete a product from a shopping cart
 
   @web
   Scenario Outline: <browser>
@@ -24,6 +24,8 @@ Feature: Add to cart functionality
     And Click shopping cart
     And wait 200
     Then Verify the product is added
+    And remove all items from cart
+    Then Check if the message "Your Shopping Cart is empty!" appeared
 
     Examples:
       | browser |

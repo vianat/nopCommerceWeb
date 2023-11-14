@@ -6,7 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import pages.DigitalDownloadsPage;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -26,7 +25,7 @@ public class LoginTest extends BaseClass {
 
     @When("Click Login button")
     public LoginPage click_login_button() {
-        mp.loginbtn.click();
+        mp.loginBtn.click();
         return new LoginPage(driver);
     }
 
@@ -50,7 +49,7 @@ public class LoginTest extends BaseClass {
     @Then("Make sure you see Log out button and text: {string}")
     public void makeSureYouSeeLogOutButtonAndText(String text) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-        String actual = mp.logoutbtn.getText();
+        String actual = mp.logOutBtn.getText();
         String expected = "Log out";
         assertEquals(actual, expected);
         assertEquals(mp.welcome.getText(), text);
