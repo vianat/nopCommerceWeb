@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import steps.BaseClass;
 
 public class MainPage extends BaseClass {
+    @FindBy(xpath="//a[contains(text(),'Register')]")
+    public WebElement registerBtn;
 
     @FindBy(xpath = "//a[@class='ico-login']")
     public WebElement loginBtn;

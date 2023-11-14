@@ -1,5 +1,8 @@
 @web
-Feature: Add to cart functionality
+Feature: TEAM2-2 Registered user able to add item to cart
+          Registered user able to add item to shopping cart
+          from any category (computers, electronics, apparel,
+          digital downloads, books, jewelry, gift cards)
 
   @web
   Scenario Outline: <browser>

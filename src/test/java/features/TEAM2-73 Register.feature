@@ -1,8 +1,5 @@
 @web
-Feature: TEAM2-3 Add and Delete a New Customer
-          As a administrator I want to:
-          add a new customer,
-          and delete the customer from system.
+Feature: TEAM2-73 Verify that a new user can successfully register with valid information
 
   @web
   Scenario Outline: <browser>
@@ -14,6 +11,9 @@ Feature: TEAM2-3 Add and Delete a New Customer
     And Push Enter
     And wait 200
     Then Make sure you see Log out button and text: "Welcome to our store"
+
+
+
     And I navigate to "https://env-sun.portnov.com/Admin"
     And wait 200
     And Expand customers panel

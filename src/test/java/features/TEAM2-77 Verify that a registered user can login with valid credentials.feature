@@ -1,5 +1,5 @@
 @web
-Feature: web functionality
+Feature: TEAM2-77 Verify that a registered user can login with valid credentials
 
   @web
   Scenario Outline: <browser>

@@ -1,5 +1,7 @@
 @web
 Feature: TEAM2-67 Verify Email Field Validation at Admin side
+              This test examines the email used
+              as a guardrail for registering new customer.
 
   @web
   Scenario Outline: <browser>
