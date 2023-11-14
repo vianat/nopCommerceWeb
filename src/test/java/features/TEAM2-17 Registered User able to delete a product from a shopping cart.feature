@@ -1,5 +1,5 @@
 @web
-Feature: TEAM2-27 Registered User able to delete a product from a shopping cart
+Feature: TEAM2-17 Registered User able to delete a product from a shopping cart
 
   @web
   Scenario Outline: <browser>
