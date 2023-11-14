@@ -2,6 +2,7 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -44,12 +45,12 @@ public class AdminTest extends BaseClass {
 
     @And("Click [save] button")
     public void clickSaveButton() {
-        driver.findElement(By.name("save")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + email + "')]")));
+        driver.findElement(By.xpath("//button[@name='save']")).click();
     }
 
     @And("Verify that the client has been created and exists in the client list")
     public void verifyThatTheClientHasBeenCreatedAndExistsInTheClientList() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + email + "')]")));
         WebElement el = driver.findElement(By.xpath("//*[contains(text(),'" + email + "')]"));
         assertEquals(el.getText(), email);
     }
@@ -89,4 +90,27 @@ public class AdminTest extends BaseClass {
     public void wait(int ms) throws InterruptedException {
         Thread.sleep(ms);
     }
+
+    @Then("Error message {string} is appear")
+    public void errorMessageIsAppear(String expected) {
+        String actual = driver.findElement(By.xpath("//span[@class='field-validation-error']")).getText();
+        assertEquals(actual, expected);
+    }
+    @Then("Error message in top section {string} is appear")
+    public void errorMessageInTopSectionIsAppear(String expected) {
+        String actual = driver.findElement(By.xpath("//div[@class='validation-summary-errors']//li[1]")).getText();
+        assertEquals(actual, expected);
+    }
+
+    @And("Clean email field")
+    public void cleanEmailField() {
+        driver.findElement(By.id("Email")).clear();
+        System.out.println(driver.findElement(By.id("Email")).getText());
+    }
+
+    @And("Type {string} in [email] field")
+    public void typeInEmailField(String email) {
+        driver.findElement(By.id("Email")).sendKeys(email);
+    }
+
 }
