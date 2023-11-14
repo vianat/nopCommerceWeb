@@ -25,12 +25,14 @@ public class WishlistTest extends BaseClass {
     MainPage mp = new MainPage(driver);
     WishListPage wp = new WishListPage(driver);
     JavascriptExecutor js = (JavascriptExecutor) driver;
-// sdsd
+
+    // sdsd
     @When("click Digital downloads")
     public DigitalDownloadsPage clickDigitalDownloads() {
         mp.digitalDownloads.click();
         return new DigitalDownloadsPage(driver);
     }
+
     @And("add to wishlist second product")
     public void addToWishlistSecondProduct() {
         dd.addToWish.click();
@@ -41,7 +43,6 @@ public class WishlistTest extends BaseClass {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@title='Close']")));
         driver.findElement(By.xpath("//span[@title='Close']")).click();
-        Thread.sleep(1500);
         js.executeScript("window.scrollBy(0,10)");
     }
 
@@ -57,11 +58,11 @@ public class WishlistTest extends BaseClass {
         assertEquals(actual, true);
     }
 
-    @And("change number of product to {string}")
-    public void changeNumberOfProductTo(String arg0) {
+    @And("change number of product to {int}")
+    public void changeNumberOfProductTo(int arg0) {
         WebElement qty = driver.findElement(By.className("qty-input"));
         qty.clear();
-        qty.sendKeys(arg0);
+        qty.sendKeys("" + arg0);
     }
 
     @And("click update wishlist button")
@@ -69,8 +70,8 @@ public class WishlistTest extends BaseClass {
         wp.updateWishlist.click();
     }
 
-    @And("verify qty of items is {string}")
-    public void verifyQtyOfItemsIs(String arg0) {
+    @And("verify qty of items is {int}")
+    public void verifyQtyOfItemsIs(int arg0) {
         assertEquals(driver.findElement(By.className("qty-input")).getAttribute("value"), arg0);
     }
 

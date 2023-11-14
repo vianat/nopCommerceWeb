@@ -1,6 +1,7 @@
 package steps;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -18,13 +19,12 @@ public class BaseClass {
     }
     public static void waitUntilElementToAppear(WebDriver driver, WebElement el){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By) el));
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By)el));
     }
     public static void waitUntilElementToDisAppear(WebDriver driver, WebElement el){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.invisibilityOf(el));
     }
-
     public static void dynamicClickOnElement(WebDriver driver, WebElement element) {
 //		 Actions actions = new Actions(driver);
 //		 actions.moveToElement(element).click().perform();
@@ -54,6 +54,15 @@ public class BaseClass {
                 break;
             }
 
+        }
+    }
+    public static void waitUntilPageLoad(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        // Ждем, пока document.readyState не станет 'complete'
+        while (true) {
+            if (js.executeScript("return document.readyState").toString().equals("complete")) {
+                break;
+            }
         }
     }
 }

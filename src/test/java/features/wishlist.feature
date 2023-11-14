@@ -11,11 +11,12 @@ Feature: wishlist functionality test.
     When click Digital downloads
     And add to wishlist second product
     And close header pop-up notification
+    And wait 100
     And open wishlist
     And check wishlist is not empty
-    And change number of product to "10"
+    And change number of product to 10
     And click update wishlist button
-    And verify qty of items is "10"
+    And verify qty of items is 10
     And click remove btn
     Then verify the wishlist is empty and you see "The wishlist is empty!"
 
