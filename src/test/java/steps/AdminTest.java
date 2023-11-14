@@ -113,4 +113,8 @@ public class AdminTest extends BaseClass {
         driver.findElement(By.id("Email")).sendKeys(email);
     }
 
+    @And("test")
+    public void test() {
+
+    }
 }

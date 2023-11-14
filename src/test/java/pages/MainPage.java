@@ -9,15 +9,19 @@ import steps.BaseClass;
 public class MainPage extends BaseClass {
 
     @FindBy(xpath = "//a[@class='ico-login']")
-    public WebElement loginbtn;
+    public WebElement loginBtn;
     @FindBy(xpath = "//a[@class='ico-logout']")
-    public WebElement logoutbtn;
+    public WebElement logOutBtn;
     @FindBy(tagName = "h2")
     public WebElement welcome;
     @FindBy(xpath = "//*[contains(text(),'Digital downloads ')]")
     public WebElement digitalDownloads;
-    @FindBy(css = "div[class='item-grid'] div:nth-child(2) div:nth-child(1) div:nth-child(2) h2:nth-child(1) a:nth-child(1)")
-    public WebElement applemac;
+    @FindBy(xpath = "//*[contains(text(),'Computers ')]")
+    public WebElement Computers;
+    @FindBy(xpath = "//img[@title='Show products in category Notebooks']")
+    public WebElement Notebooks;
+    @FindBy(xpath = "//h2[@class='product-title']//a[contains(text(),'FINAL SALE!!!! Apple MacBook Pro 13-inch')]")
+    public WebElement appleMac;
 
     public MainPage(WebDriver driver) {
         driver = BaseClass.driver;

@@ -8,14 +8,10 @@ import steps.BaseClass;
 
 public class CartPage extends BaseClass {
 
-
-
-    @FindBy(id = "add-to-cart-button-4")
-    public WebElement addtocart;
-    @FindBy(xpath = "//span[@class='cart-label']")
-    public WebElement shoppingcart;
-
-
+    @FindBy(xpath = "//button[@id='add-to-cart-button-4']")
+    public WebElement addToCart;
+    @FindBy(xpath = "//a[@class='ico-cart']")
+    public WebElement shoppingCart;
 
     public CartPage(WebDriver driver) {
         driver = BaseClass.driver;

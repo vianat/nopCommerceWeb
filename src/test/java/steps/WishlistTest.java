@@ -71,8 +71,9 @@ public class WishlistTest extends BaseClass {
     }
 
     @And("verify qty of items is {int}")
-    public void verifyQtyOfItemsIs(int arg0) {
-        assertEquals(driver.findElement(By.className("qty-input")).getAttribute("value"), arg0);
+    public void verifyQtyOfItemsIs(int qty) {
+        System.out.println(driver.findElement(By.className("qty-input")).getAttribute("value"));
+        assertEquals(driver.findElement(By.className("qty-input")).getAttribute("value"), ""+qty);
     }
 
     @And("click remove btn")
@@ -80,9 +81,10 @@ public class WishlistTest extends BaseClass {
         wp.removeBtn.click();
     }
 
-    @Then("verify the wishlist is empty and you see {string}")
-    public void verifyTheWishlistIsEmptyAndYouSee(String expeted) {
+    @Then("Check if the message {string} appeared")
+    public void checkIfTheMessageAppeared(String expected) {
         WebElement actual = driver.findElement(By.xpath("//div[@class='no-data']"));
-        assertEquals(actual.getText(), expeted);
+        assertEquals(actual.getText(), expected);
     }
+
 }
