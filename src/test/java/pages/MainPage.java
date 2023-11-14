@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import steps.BaseClass;
 
 public class MainPage extends BaseClass {
+    int a;
 
     @FindBy(xpath = "//a[@class='ico-login']")
     public WebElement loginBtn;
@@ -27,4 +28,6 @@ public class MainPage extends BaseClass {
         driver = BaseClass.driver;
         PageFactory.initElements(driver, this);
     }
+
+
 }
