@@ -141,10 +141,36 @@ public class AdminTest extends BaseClass {
         ap.changeOrder.click();
     }
 
+    @And("Set [order statuses] {string}")
+    public void setOrderStatuses(String status) throws InterruptedException {
+        driver.findElement(By.xpath("//div[5]//div[2]//div[1]//div[1]")).click();
+        System.out.println("1");
+        Thread.sleep(500);
+//        driver.findElement(By.xpath("//option[contains(text(),'" + status + "')]")).click();
+        driver.findElement(By.xpath("//div[5]//div[2]//div[1]//div[1]")).sendKeys(Keys.ARROW_DOWN);
+        driver.findElement(By.cssSelector("select[id='OrderStatusIds'] option[value='10']")).click();
+        System.out.println("2");
+//        driver.findElement(By.xpath("//select[@id='OrderStatusIds']//option[@value='10'][normalize-space()='" + status + "']")).click();
+    }
+
+    @And("Click [search] button")
+    public void clickSearchButton() {
+        ap.searchOrders.click();
+    }
+    @And("Click [delete order] button")
+    public void clickDeleteOrderButton() {
+        ap.orderDelete.click();
+    }
+
     @And("Click [order status] button")
     public void clickOrderStatusButton() {
         ap.orderStatus.click();
-        System.out.println("2");
+        System.out.println("3");
+    }
+
+    @And("Click [cancel order] button")
+    public void clickCancelOrderButton() {
+        ap.cancelOrder.click();
     }
 
     @And("Set {string} status")
@@ -182,6 +208,13 @@ public class AdminTest extends BaseClass {
     @And("Accept order confirmation")
     public void acceptOrderConfirmation() {
         ap.acceptOrderConfirmation.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='font-weight-bold']")));
+    }
+
+    @And("Accept cancel confirmation")
+    public void acceptCancelConfirmation() {
+        ap.acceptCancelConfirmation.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='font-weight-bold']")));
     }
@@ -229,4 +262,9 @@ public class AdminTest extends BaseClass {
         System.out.println(expected);
     }
 
+
+    @And("Accept delete confirmation")
+    public void acceptDeleteConfirmation() {
+        driver.findElement(By.xpath("//button[contains(text(),'Delete')]")).click();
+    }
 }

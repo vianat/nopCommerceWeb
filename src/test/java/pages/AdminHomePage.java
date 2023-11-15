@@ -56,10 +56,18 @@ public class AdminHomePage extends BaseClass{
     public WebElement orderTotalInput;
     @FindBy(id = "btnSaveOrderStatus")
     public WebElement saveOrderStatus;
+    @FindBy(id = "cancelorder")
+    public WebElement cancelOrder;
+    @FindBy(id = "search-orders")
+    public WebElement searchOrders;
+    @FindBy(id = "order-delete")
+    public WebElement orderDelete;
     @FindBy(id = "btnSaveOrderStatus-action-confirmation-submit-button")
     public WebElement acceptOrderConfirmation;
     @FindBy(id = "btnSaveOrderTotals-action-confirmation-submit-button")
     public WebElement acceptTotalConfirmation;
+    @FindBy(id = "cancelorder-action-confirmation-submit-button")
+    public WebElement acceptCancelConfirmation;
 
     public AdminHomePage(WebDriver driver) {
         driver = BaseClass.driver;

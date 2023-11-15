@@ -1,5 +1,5 @@
 @web
-Feature: TEAM2-67 TEAM2-34 Store Manager can change order status.feature
+Feature: TEAM2-34 Store Manager can change order status.feature
 
   @web
   Scenario Outline: <browser>
