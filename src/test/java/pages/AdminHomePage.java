@@ -24,10 +24,10 @@ public class AdminHomePage extends BaseClass{
     @FindBy(xpath = "//a[@href='/Admin/Product/List']")
     public WebElement products;
 
-    @FindBy(xpath = "//input[@id='Name']")
+    @FindBy(id = "Name")
     public WebElement productName;
 
-    @FindBy(xpath = "//textarea[@id='ShortDescription']")
+    @FindBy(id = "ShortDescription")
     public WebElement shortDescription;
 
     @FindBy(xpath = "//div[@id='product-price-area']//input[@title='0.0000 USD']")
@@ -36,7 +36,7 @@ public class AdminHomePage extends BaseClass{
     @FindBy(xpath = "//input[@title='0.0000 lb(s)']")
     public WebElement weight;
 
-    @FindBy(xpath = "//select[@id='ManageInventoryMethodId']")
+    @FindBy(id = "ManageInventoryMethodId")
     public WebElement inverntory;
 
     @FindBy(xpath = "//button[@name='save']")
@@ -44,13 +44,14 @@ public class AdminHomePage extends BaseClass{
 
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissable']")
     public WebElement alertmsg;
-
-
-
-
-
-
-
+    @FindBy(id = "btnChangeOrderStatus")
+    public WebElement changeOrderStatus;
+    @FindBy(id = "OrderStatusId")
+    public WebElement orderStatus;
+    @FindBy(id = "btnSaveOrderStatus")
+    public WebElement saveOrderStatus;
+    @FindBy(id = "btnSaveOrderStatus-action-confirmation-submit-button")
+    public WebElement acceptConfirmation;
 
     public AdminHomePage(WebDriver driver) {
         driver = BaseClass.driver;
