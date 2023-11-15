@@ -2,7 +2,6 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -111,10 +110,5 @@ public class AdminTest extends BaseClass {
     @And("Type {string} in [email] field")
     public void typeInEmailField(String email) {
         driver.findElement(By.id("Email")).sendKeys(email);
-    }
-
-    @And("test")
-    public void test() {
-
     }
 }
