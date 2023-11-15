@@ -37,21 +37,29 @@ public class AdminHomePage extends BaseClass{
     public WebElement weight;
 
     @FindBy(id = "ManageInventoryMethodId")
-    public WebElement inverntory;
+    public WebElement inventory;
 
     @FindBy(xpath = "//button[@name='save']")
     public WebElement save;
 
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissable']")
-    public WebElement alertmsg;
+    public WebElement alertMsg;
     @FindBy(id = "btnChangeOrderStatus")
-    public WebElement changeOrderStatus;
+    public WebElement changeOrder;
+    @FindBy(name = "btnEditOrderTotals")
+    public WebElement editOrderTotals;
+    @FindBy(id = "btnSaveOrderTotals")
+    public WebElement saveOrderTotals;
     @FindBy(id = "OrderStatusId")
     public WebElement orderStatus;
+    @FindBy(xpath = "(//span[@class='k-numeric-wrap k-state-default'])[11]//following::input")
+    public WebElement orderTotalInput;
     @FindBy(id = "btnSaveOrderStatus")
     public WebElement saveOrderStatus;
     @FindBy(id = "btnSaveOrderStatus-action-confirmation-submit-button")
-    public WebElement acceptConfirmation;
+    public WebElement acceptOrderConfirmation;
+    @FindBy(id = "btnSaveOrderTotals-action-confirmation-submit-button")
+    public WebElement acceptTotalConfirmation;
 
     public AdminHomePage(WebDriver driver) {
         driver = BaseClass.driver;
