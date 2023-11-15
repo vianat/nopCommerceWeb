@@ -2,16 +2,13 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.AdminHomePage;
 
-import java.security.Key;
 import java.time.Duration;
 import java.util.Random;
 
@@ -112,7 +109,6 @@ public class AdminTest extends BaseClass {
     @And("Clean email field")
     public void cleanEmailField() {
         driver.findElement(By.id("Email")).clear();
-        System.out.println(driver.findElement(By.id("Email")).getText());
     }
 
     @And("Type {string} in [email] field")
@@ -130,7 +126,7 @@ public class AdminTest extends BaseClass {
         driver.findElement(By.xpath("//li[@class='nav-item has-treeview menu-is-opening menu-open']//li[1]//a[1]")).click();
     }
 
-    @And("Click first view button in table")
+    @And("Click first [view] button in table")
     public void clickFirstViewButtonInTable() {
         driver.findElement(By.xpath("//tbody/tr[1]/td[9]/a[1]")).click();
         orderPrice = driver.findElement(By.xpath("//div[5]//div[2]//div[1]")).getText();
@@ -138,7 +134,27 @@ public class AdminTest extends BaseClass {
 
     @And("Click [change order status] button")
     public void clickChangeOrderStatusButton() {
-        ap.changeOrder.click();
+        ap.changeStatus.click();
+    }
+
+    @And("Set {string} status")
+    public void setStatus(String status) {
+        driver.findElement(By.xpath("//option[contains(text(),'" + status + "')]")).click();
+//        switch (status) {
+//            case "Pending":
+//                driver.findElement(By.xpath("//option[contains(text(),'Pending')]")).click();
+////                driver.findElement(By.xpath("//option[@value='10']")).click();
+//                break;
+//            case "Processing":
+//                driver.findElement(By.xpath("//option[contains(text(),'Processing')]")).click();
+//                break;
+//            case "Complete":
+//                driver.findElement(By.xpath("//option[contains(text(),'Complete')]")).click();
+//                break;
+//            case "Cancelled":
+//                driver.findElement(By.xpath("//option[contains(text(),'Cancelled')]")).click();
+//                break;
+//        }
     }
 
     @And("Set [order statuses] {string}")
@@ -162,35 +178,9 @@ public class AdminTest extends BaseClass {
         ap.orderDelete.click();
     }
 
-    @And("Click [order status] button")
-    public void clickOrderStatusButton() {
-        ap.orderStatus.click();
-        System.out.println("3");
-    }
-
     @And("Click [cancel order] button")
     public void clickCancelOrderButton() {
         ap.cancelOrder.click();
-    }
-
-    @And("Set {string} status")
-    public void setStatus(String status) {
-        driver.findElement(By.xpath("//option[contains(text(),'" + status + "')]")).click();
-//        switch (status) {
-//            case "Pending":
-//                driver.findElement(By.xpath("//option[contains(text(),'Pending')]")).click();
-////                driver.findElement(By.xpath("//option[@value='10']")).click();
-//                break;
-//            case "Processing":
-//                driver.findElement(By.xpath("//option[contains(text(),'Processing')]")).click();
-//                break;
-//            case "Complete":
-//                driver.findElement(By.xpath("//option[contains(text(),'Complete')]")).click();
-//                break;
-//            case "Cancelled":
-//                driver.findElement(By.xpath("//option[contains(text(),'Cancelled')]")).click();
-//                break;
-//        }
     }
 
     @And("Click [save] status button")

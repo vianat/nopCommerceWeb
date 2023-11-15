@@ -72,7 +72,6 @@ public class WishlistTest extends BaseClass {
 
     @And("verify qty of items is {int}")
     public void verifyQtyOfItemsIs(int qty) {
-        System.out.println(driver.findElement(By.className("qty-input")).getAttribute("value"));
         assertEquals(driver.findElement(By.className("qty-input")).getAttribute("value"), ""+qty);
     }
 

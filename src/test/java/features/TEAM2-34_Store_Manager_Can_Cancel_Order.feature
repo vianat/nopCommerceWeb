@@ -18,11 +18,6 @@ Feature: TEAM2-34 Store Manager can change order status
     And Click on orders in panel
     And wait 300
 
-#    And Set [order statuses] "Pending"
-#    And Push Enter
-#    And Click [search] button
-#    And wait 300
-
     And Click first view button in table
     And wait 200
     And Click [cancel order] button

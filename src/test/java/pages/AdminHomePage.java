@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import steps.BaseClass;
 
-public class AdminHomePage extends BaseClass{
+public class AdminHomePage extends BaseClass {
     @FindBy(xpath = "//p[normalize-space()='Customers']//i[@class='right fas fa-angle-left']")
     public WebElement expandCustomers;
 
@@ -44,18 +44,16 @@ public class AdminHomePage extends BaseClass{
 
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissable']")
     public WebElement alertMsg;
-    @FindBy(id = "btnChangeOrderStatus")
-    public WebElement changeOrder;
+    @FindBy(xpath = "//button[@id='btnChangeOrderStatus']")
+    public WebElement changeStatus;
     @FindBy(name = "btnEditOrderTotals")
     public WebElement editOrderTotals;
     @FindBy(id = "btnSaveOrderTotals")
     public WebElement saveOrderTotals;
-    @FindBy(id = "OrderStatusId")
-    public WebElement orderStatus;
-    @FindBy(xpath = "(//span[@class='k-numeric-wrap k-state-default'])[11]//following::input")
-    public WebElement orderTotalInput;
     @FindBy(id = "btnSaveOrderStatus")
     public WebElement saveOrderStatus;
+    @FindBy(xpath = "(//span[@class='k-numeric-wrap k-state-default'])[11]//following::input")
+    public WebElement orderTotalInput;
     @FindBy(id = "cancelorder")
     public WebElement cancelOrder;
     @FindBy(id = "search-orders")

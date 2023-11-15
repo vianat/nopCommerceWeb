@@ -18,22 +18,20 @@ Feature: TEAM2-34 Store Manager can change order status.feature
     And Click on orders in panel
     And wait 300
     And Click first view button in table
+    And wait 300
 
     And Click [change order status] button
-    And wait 200
-    And Click [order status] button
-    And wait 100
-    And Set "Pending" status
+    And wait 300
+    And Set "Cancelled" status
     And Click [save] status button
     And wait 200
     And Accept order confirmation
     And wait 200
-    Then Verify order status is "Pending"
+    Then Verify order status is "Cancelled"
     And wait 100
 
     And Click [change order status] button
-    And wait 100
-    And Click [order status] button
+    And wait 300
     And Set "Processing" status
     And Click [save] status button
     And wait 200
@@ -43,30 +41,27 @@ Feature: TEAM2-34 Store Manager can change order status.feature
     And wait 100
 
     And Click [change order status] button
+    And wait 300
+    And Set "Pending" status
+    And Click [save] status button
+    And wait 200
+    And Accept order confirmation
+    And wait 200
+    Then Verify order status is "Pending"
     And wait 100
-    And Click [order status] button
+
+    And Click [change order status] button
+    And wait 300
     And Set "Complete" status
     And Click [save] status button
     And wait 200
     And Accept order confirmation
     And wait 200
     Then Verify order status is "Complete"
-    And wait 100
-
-    And Click [change order status] button
-    And wait 100
-    And Click [order status] button
-    And Set "Cancelled" status
-    And Click [save] status button
-    And wait 200
-    And Accept order confirmation
-    And wait 200
-    Then Verify order status is "Cancelled"
-    And wait 100
 
     Examples:
       | browser |
       | firefox |
-#      | chrome  |
-#      | edge    |
+      | chrome  |
+      | edge    |
       #| safari  |
