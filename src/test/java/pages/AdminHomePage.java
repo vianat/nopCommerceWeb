@@ -15,6 +15,8 @@ public class AdminHomePage extends BaseClass{
 
     @FindBy(xpath = "//a[normalize-space()='Add new']")
     public WebElement addNew;
+    @FindBy(xpath = "//i[@class='nav-icon fas fa-shopping-cart']")
+    public WebElement sales;
 
     @FindBy(xpath = "//i[@class='nav-icon fas fa-book']")
     public WebElement catalog;
