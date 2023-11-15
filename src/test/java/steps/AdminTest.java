@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -157,22 +158,11 @@ public class AdminTest extends BaseClass {
 //        }
     }
 
-    @And("Set [order statuses] {string}")
-    public void setOrderStatuses(String status) throws InterruptedException {
-        driver.findElement(By.xpath("//div[5]//div[2]//div[1]//div[1]")).click();
-        System.out.println("1");
-        Thread.sleep(500);
-//        driver.findElement(By.xpath("//option[contains(text(),'" + status + "')]")).click();
-        driver.findElement(By.xpath("//div[5]//div[2]//div[1]//div[1]")).sendKeys(Keys.ARROW_DOWN);
-        driver.findElement(By.cssSelector("select[id='OrderStatusIds'] option[value='10']")).click();
-        System.out.println("2");
-//        driver.findElement(By.xpath("//select[@id='OrderStatusIds']//option[@value='10'][normalize-space()='" + status + "']")).click();
-    }
-
     @And("Click [search] button")
     public void clickSearchButton() {
         ap.searchOrders.click();
     }
+
     @And("Click [delete order] button")
     public void clickDeleteOrderButton() {
         ap.orderDelete.click();
@@ -225,17 +215,26 @@ public class AdminTest extends BaseClass {
         String locator = orderPrice.substring(1);
         locator = locator.substring(0, locator.length() - 3);
         locator = locator.replace(",", "");
-        System.out.println(locator);
-        //input[@title='"+locator +".0000 ']
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ap.orderTotalInput);
-//        WebElement el = driver.findElement(By.xpath("//body/div[3]/div[1]/form[1]/section[1]/div[1]/div[1]/nop-cards[1]/nop-card[1]/div[1]/div[2]/div[2]/div[1]/div[6]/div[8]/div[2]/span[1]/span[1]/input[1]"));
-//        ap.orderTotalInput.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE) + total);
-//        el.clear();
+
+
+        System.out.println("locator " + locator);
+
         WebElement el = driver.findElement(By.xpath("//input[@title='" + locator + ".0000 ']"));
+
+        if (el.isDisplayed() && el.isEnabled()) {
+            System.out.println("find");
+        }
         el.click();
-        driver.findElement(By.cssSelector("#trEditOrderTotals > div:nth-child(8) > div.col-md-9 > span > span > input.k-formatted-value.k-input")).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE) + total);
-        driver.findElement(By.cssSelector("#trEditOrderTotals > div:nth-child(8) > div.col-md-9 > span > span > input.k-formatted-value.k-input")).clear();
+        System.out.println("4");
+
+        WebElement el2 = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[1]/form[1]/section[1]/div[1]/div[1]/nop-cards[1]/nop-card[1]/div[1]/div[2]/div[2]/div[1]/div[6]/div[8]/div[2]/span[1]/span[1]/input[1]"));
+        el2.sendKeys(total);
+//        driver.findElement(By.cssSelector("#trEditOrderTotals > div:nth-child(8) > div.col-md-9 > span > span > input.k-formatted-value.k-input"))
+//                .sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE) + total);
+//        driver.findElement(By.cssSelector("#trEditOrderTotals > div:nth-child(8) > div.col-md-9 > span > span > input.k-formatted-value.k-input")).clear();
         System.out.println("5");
+//
+//        ap.weight.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE) + total);
     }
 
     @And("Click [save order total] button")
@@ -248,13 +247,23 @@ public class AdminTest extends BaseClass {
     @Then("Verify order total is {string}")
     public void verifyOrderTotalIs(String expected) {
         String actual = driver.findElement(By.xpath("//div[5]//div[2]//div[1]")).getText();
-        System.out.println("after" + actual);
-        System.out.println(expected);
+        System.out.println("assert: " + "$" + expected + ".00" + "-----" + actual);
     }
-
 
     @And("Accept delete confirmation")
     public void acceptDeleteConfirmation() {
         driver.findElement(By.xpath("//button[contains(text(),'Delete')]")).click();
     }
+
+    //    @And("Set [order statuses] {string}")
+//    public void setOrderStatuses(String status) throws InterruptedException {
+//        driver.findElement(By.xpath("//div[5]//div[2]//div[1]//div[1]")).click();
+//        System.out.println("1");
+//        Thread.sleep(500);
+////        driver.findElement(By.xpath("//option[contains(text(),'" + status + "')]")).click();
+//        driver.findElement(By.xpath("//div[5]//div[2]//div[1]//div[1]")).sendKeys(Keys.ARROW_DOWN);
+//        driver.findElement(By.cssSelector("select[id='OrderStatusIds'] option[value='10']")).click();
+//        System.out.println("2");
+////        driver.findElement(By.xpath("//select[@id='OrderStatusIds']//option[@value='10'][normalize-space()='" + status + "']")).click();
+//    }
 }

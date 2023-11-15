@@ -25,10 +25,9 @@ Feature: TEAM2-35 Store Manager can change order total price
     And Set [order total] field to "778899"
     And wait 2000
     And Click [save order total] button
-    And wait 2000
+    And wait 500
     And Accept total confirmation
-    And wait 4000
-
+    And wait 500
     Then Verify order total is "778899"
 
     Examples:
