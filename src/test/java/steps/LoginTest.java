@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.LoginPage;
 import pages.MainPage;
+import pages.RegisterPage;
 
 import java.time.Duration;
 
@@ -53,6 +54,12 @@ public class LoginTest extends BaseClass {
         String expected = "Log out";
         assertEquals(actual, expected);
         assertEquals(mp.welcome.getText(), text);
+    }
+
+    @And("Click [Register] button")
+    public RegisterPage clickRegisterButton() {
+        mp.registerBtn.click();
+        return new RegisterPage(driver);
     }
 
 }

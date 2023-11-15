@@ -5,31 +5,22 @@ Feature: TEAM2-73 Verify that a new user can successfully register with valid in
   Scenario Outline: <browser>
     Given I navigate to "https://env-sun.portnov.com/"
     And wait 200
-    When Click Login button
-    And Enter email "team-sun@noreply.portnov.com"
-    And Enter password "ow!<lSy~2H87"
-    And Push Enter
-    And wait 200
-    Then Make sure you see Log out button and text: "Welcome to our store"
 
+    And Click [Register] button
+    And wait 100
+    Then Verify you on register page and see "Register"
 
+    And Select female gender
+    And Enter valid first name in [first name] field
+    And Enter valid last name in [last name] field
 
-    And I navigate to "https://env-sun.portnov.com/Admin"
+    And Enter valid email in [email] field
+    And Enter valid password in [password] field
+    And Enter valid password in [confirm password] field
+    And Click [Register] button for register form
+
     And wait 200
-    And Expand customers panel
-    And Click on customers in panel
-    And wait 200
-    And Click Add new button
-    And wait 200
-    And Type email in [email] field
-    And Click [save] button
-    And Verify that the client has been created and exists in the client list
-    And Click [edit] button for this customer
-    And wait 200
-    And Click [delete] button
-    And Accept alert
-    And wait 200
-    Then Verify that the client has been deleted
+    Then Verify you see message "Your registration has been successfully completed. You have just been sent an email containing activation instructions."
 
     Examples:
       | browser |

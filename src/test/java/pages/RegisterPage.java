@@ -8,7 +8,26 @@ import steps.BaseClass;
 
 public class RegisterPage extends BaseClass {
 
-    @FindBy(xpath="//a[contains(text(),'Register')]")
+    @FindBy(id="gender-female")
+    public WebElement genderFemale;
+    @FindBy(id="FirstName")
+    public WebElement firstName;
+    @FindBy(id="LastName")
+    public WebElement lastName;
+
+    @FindBy(id="Email")
+    public WebElement email;
+    @FindBy(id="Password")
+    public WebElement password;
+    @FindBy(id="ConfirmPassword")
+    public WebElement confirmPassword;
+    @FindBy(xpath="//select[@name='DateOfBirthDay']")
+    public WebElement day;
+    @FindBy(xpath="//select[@name='DateOfBirthMonth']")
+    public WebElement month;
+    @FindBy(xpath="//select[@name='DateOfBirthYear']")
+    public WebElement year;
+    @FindBy(id="register-button")
     public WebElement registerBtn;
 
     public RegisterPage(WebDriver driver) {
