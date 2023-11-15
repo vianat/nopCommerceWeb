@@ -66,7 +66,17 @@ public class RegisterTest extends BaseClass {
     @Then("Verify you see message {string}")
     public void verifyYouSeeMessage(String expected) {
         String actual = driver.findElement(By.xpath("//div[@class='result']")).getText();
-        System.out.println(actual);
+        assertEquals(actual, expected);
+    }
+
+    @And("Enter invalid email {string} in [email] field")
+    public void enterInvalidEmailInEmailField(String invEmail) {
+        rp.email.sendKeys(invEmail);
+    }
+
+    @Then("Verify you see message {string} bellow email field")
+    public void verifyYouSeeMessageBellowEmailField(String expected) {
+        String actual = driver.findElement(By.xpath("//span[@class='field-validation-error']")).getText();
         assertEquals(actual, expected);
     }
 }

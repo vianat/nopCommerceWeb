@@ -29,6 +29,9 @@ public class RegisterPage extends BaseClass {
     public WebElement year;
     @FindBy(id="register-button")
     public WebElement registerBtn;
+    @FindBy(xpath="//span[@class='field-validation-error']")
+    public WebElement emailError;
+
 
     public RegisterPage(WebDriver driver) {
         driver = BaseClass.driver;
