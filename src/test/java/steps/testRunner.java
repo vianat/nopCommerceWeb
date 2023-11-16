@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/features",
+		features = "src/test/java/features",
         glue = {"steps"},
         monochrome = false,
         dryRun = false,
@@ -16,5 +16,8 @@ import org.junit.runner.RunWith;
 				"html:target/cucumber-reports/report.html",
 				},
 
-        tags = "@web")
+        tags = "@web1")
 public class testRunner{}
+
+//	 mvn test && open target/cucumber-reports/report.html  MAC
+//	 mvn test && start target/cucumber-reports/report.html WIN
