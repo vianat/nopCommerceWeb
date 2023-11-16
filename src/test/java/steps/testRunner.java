@@ -18,6 +18,3 @@ import org.junit.runner.RunWith;
 
         tags = "@web1")
 public class testRunner{}
-
-//	 mvn test && open target/cucumber-reports/report.html  MAC
-//	 mvn test && start target/cucumber-reports/report.html WIN
