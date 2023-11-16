@@ -18,12 +18,12 @@ Feature: TEAM2-35 Store Manager can change order total price
     And Click on orders in panel
     And wait 300
     And Click first [view] button in table
-
+    And wait 500
     And Click [edit Order Total] button
-    And wait 2000
+    And wait 500
 
     And Set [order total] field to "778899"
-    And wait 2000
+    And wait 500
     And Click [save order total] button
     And wait 500
     And Accept total confirmation
@@ -32,7 +32,7 @@ Feature: TEAM2-35 Store Manager can change order total price
 
     Examples:
       | browser |
-#      | firefox |
+      | firefox |
       | chrome  |
-#      | edge    |
-      #| safari  |
+      | edge    |
+#      | safari  |

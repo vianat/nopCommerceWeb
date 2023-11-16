@@ -8,11 +8,12 @@ Feature: TEAM2-77 Verify that a registered user can login with valid credentials
     And Enter email "team-sun@noreply.portnov.com"
     And Enter password "ow!<lSy~2H87"
     And Push Enter
+    And wait 100
     Then Make sure you see Log out button and text: "Welcome to our store"
 
     Examples:
       | browser |
+      | edge    |
       | firefox |
       | chrome  |
-      | edge    |
 #      | safari  |

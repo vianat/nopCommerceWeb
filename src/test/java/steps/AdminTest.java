@@ -2,6 +2,7 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -91,8 +92,13 @@ public class AdminTest extends BaseClass {
     }
 
     @And("wait {int}")
-    public void wait(int ms) throws InterruptedException {
+    public void otdohniBratok(int ms) throws InterruptedException {
         Thread.sleep(ms);
+    }
+    protected void step(@NotNull Runnable runnable) throws InterruptedException {
+
+        Thread.sleep(100);
+        runnable.run();
     }
 
     @Then("Error message {string} is appear")
@@ -211,30 +217,26 @@ public class AdminTest extends BaseClass {
     }
 
     @And("Set [order total] field to {string}")
-    public void setOrderTotalFieldTo(String total) {
+    public void setOrderTotalFieldTo(String total) throws InterruptedException {
         String locator = orderPrice.substring(1);
         locator = locator.substring(0, locator.length() - 3);
         locator = locator.replace(",", "");
 
+        WebElement el = driver.findElement(By.xpath("//div[8]//div[2]//span[1]//span[1]//input[1]"));
+        WebElement el2 = driver.findElement(By.xpath("//div[8]//div[2]//span[1]//span[1]//input[2]"));
 
-        System.out.println("locator " + locator);
-
-        WebElement el = driver.findElement(By.xpath("//input[@title='" + locator + ".0000 ']"));
-
-        if (el.isDisplayed() && el.isEnabled()) {
-            System.out.println("find");
-        }
+//        if (el.isDisplayed() && el.isEnabled()) {
+//            System.out.println("find");
+//        }
         el.click();
-        System.out.println("4");
 
-        WebElement el2 = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[1]/form[1]/section[1]/div[1]/div[1]/nop-cards[1]/nop-card[1]/div[1]/div[2]/div[2]/div[1]/div[6]/div[8]/div[2]/span[1]/span[1]/input[1]"));
+        step( () -> {
+            el2.clear();
+            el.click();
+        });
+
+        Thread.sleep(300);
         el2.sendKeys(total);
-//        driver.findElement(By.cssSelector("#trEditOrderTotals > div:nth-child(8) > div.col-md-9 > span > span > input.k-formatted-value.k-input"))
-//                .sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE) + total);
-//        driver.findElement(By.cssSelector("#trEditOrderTotals > div:nth-child(8) > div.col-md-9 > span > span > input.k-formatted-value.k-input")).clear();
-        System.out.println("5");
-//
-//        ap.weight.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE) + total);
     }
 
     @And("Click [save order total] button")
@@ -246,8 +248,11 @@ public class AdminTest extends BaseClass {
 
     @Then("Verify order total is {string}")
     public void verifyOrderTotalIs(String expected) {
-        String actual = driver.findElement(By.xpath("//div[5]//div[2]//div[1]")).getText();
-        System.out.println("assert: " + "$" + expected + ".00" + "-----" + actual);
+        String actual = driver.findElement(By.xpath("//div[5]//div[2]//div[1]")).getText()
+                .replace(",", "")
+                .substring(1);
+
+        assertEquals(actual, expected+ ".00");
     }
 
     @And("Accept delete confirmation")
