@@ -5,7 +5,7 @@ Feature: wishlist functionality test.
              change the number of products in the list,
              remove products from the list
 
-  @web1
+  @web
   Scenario Outline: <browser>
     Given I navigate to "https://env-sun.portnov.com/"
     When click Digital downloads

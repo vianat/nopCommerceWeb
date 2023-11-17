@@ -2,7 +2,7 @@
 Feature: TEAM2-1 Add a product
   As an administrator I should be able to add a product to a web-store.
 
-  @web
+  @web1
   Scenario Outline: <browser>
     Given I navigate to "https://env-sun.portnov.com/"
     When Click Login button
