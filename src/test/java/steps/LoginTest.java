@@ -33,7 +33,7 @@ public class LoginTest extends BaseClass {
 
     @And("Enter email {string}")
     public void enterEmail(String email) throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1000);
         lp.email.sendKeys(email);
     }
 
