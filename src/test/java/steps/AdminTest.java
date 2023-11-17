@@ -97,7 +97,7 @@ public class AdminTest extends BaseClass {
     }
     protected void step(@NotNull Runnable runnable) throws InterruptedException {
 
-        Thread.sleep(100);
+        Thread.sleep(300);
         runnable.run();
     }
 

@@ -1,10 +1,10 @@
-@web1
+@web
 Feature: TEAM2-2 Registered user able to add item to cart
           Registered user able to add item to shopping cart
           from any category (computers, electronics, apparel,
           digital downloads, books, jewelry, gift cards)
 
-  @web1
+  @web
   Scenario Outline: <browser>
     Given I navigate to "https://env-sun.portnov.com/"
     When Click Login button

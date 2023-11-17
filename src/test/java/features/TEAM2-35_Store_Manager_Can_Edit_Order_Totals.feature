@@ -20,7 +20,7 @@ Feature: TEAM2-35 Store Manager can change order total price
     And Click first [view] button in table
     And wait 500
     And Click [edit Order Total] button
-    And wait 500
+    And wait 1000
 
     And Set [order total] field to "778899"
     And wait 500

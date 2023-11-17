@@ -1,8 +1,8 @@
-#$ nopCommerceWeb
+##$ nopCommerceWeb
 
     Web Application Testing Project using Java, Selenium, and Cucumber.
 
-## Description
+# Description
 
     This project comprises automated tests for a web application using Java, Selenium WebDriver, and Cucumber.
     The tests are designed to validate the functionality of the application using the Behavior Driven Development (BDD) approach.
@@ -17,7 +17,7 @@
 
     Clone the repository: git clone https://github.com/vianat/nopCommerceWeb.git
 
-    Download all dependencies:
+    Download all dependencies: mvn clean install
 
 # Running:
 

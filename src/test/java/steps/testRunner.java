@@ -16,5 +16,5 @@ import org.junit.runner.RunWith;
 				"html:target/cucumber-reports/report.html",
 				},
 
-        tags = "@web1")
+        tags = "@web")
 public class testRunner{}
