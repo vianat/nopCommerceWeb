@@ -13,7 +13,7 @@ Feature: TEAM2-77 Verify that a registered user can login with valid credentials
 
     Examples:
       | browser |
-      | edge    |
       | firefox |
       | chrome  |
-#      | safari  |
+      | edge    |
+      | safari  |

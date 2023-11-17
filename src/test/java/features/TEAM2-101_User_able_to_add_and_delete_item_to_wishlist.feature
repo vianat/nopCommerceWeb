@@ -5,13 +5,12 @@ Feature: wishlist functionality test.
              change the number of products in the list,
              remove products from the list
 
-  @web
+  @web1
   Scenario Outline: <browser>
     Given I navigate to "https://env-sun.portnov.com/"
     When click Digital downloads
     And add to wishlist second product
     And close header pop-up notification
-    And wait 1000
     And open wishlist
     And check wishlist is not empty
     And change number of product to 10
@@ -25,4 +24,4 @@ Feature: wishlist functionality test.
       | firefox |
       | chrome  |
       | edge    |
-#      | safari  |
+      | safari  |

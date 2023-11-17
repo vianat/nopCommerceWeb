@@ -10,9 +10,9 @@ public class MainPage extends BaseClass {
     @FindBy(xpath="//a[contains(text(),'Register')]")
     public WebElement registerBtn;
 
-    @FindBy(xpath = "//a[@class='ico-login']")
+    @FindBy(xpath = "//a[contains(text(),'Log in')]")
     public WebElement loginBtn;
-    @FindBy(xpath = "//a[@class='ico-logout']")
+    @FindBy(xpath = "//a[contains(text(),'Log out')]")
     public WebElement logOutBtn;
     @FindBy(tagName = "h2")
     public WebElement welcome;

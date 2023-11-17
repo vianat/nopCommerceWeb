@@ -14,17 +14,23 @@ public class AddProduct extends BaseClass {
 
     CartPage cp = new CartPage(driver);
     MainPage mp = new MainPage(driver);
-    JavascriptExecutor js = (JavascriptExecutor) driver;
     String productName;
+    WebElement closeAlert;
 
     @And("Add product to cart")
-    public void addProductToCart() {
+    public void addProductToCart() throws InterruptedException {
+        Thread.sleep(500);
         productName = driver.findElement(By.tagName("h1")).getText();
         cp.addToCart.click();
+
+        Thread.sleep(500);
+        closeAlert = driver.findElement(By.xpath("//span[@title='Close']"));
+        closeAlert.click();
     }
 
     @And("Click shopping cart")
-    public void clickShoppingCart() {
+    public void clickShoppingCart() throws InterruptedException {
+        Thread.sleep(1000);
         cp.shoppingCart.click();
     }
 
@@ -37,28 +43,33 @@ public class AddProduct extends BaseClass {
 //    }
 
     @And("Click on the Computers category")
-    public void clickOnTheComputersCategory() {
+    public void clickOnTheComputersCategory() throws InterruptedException {
+        Thread.sleep(500);
         mp.Computers.click();
     }
 
     @And("Click on the Notebooks category")
-    public void clickOnTheNotebooksCategory() {
+    public void clickOnTheNotebooksCategory() throws InterruptedException {
+        Thread.sleep(500);
         mp.Notebooks.click();
     }
 
     @And("Click on the product")
-    public void clickOnTheProduct() {
+    public void clickOnTheProduct() throws InterruptedException {
+        Thread.sleep(500);
         mp.appleMac.click();
     }
 
     @Then("Verify the product is added")
-    public void verifyTheProductIsAdded() {
+    public void verifyTheProductIsAdded() throws InterruptedException {
+        Thread.sleep(500);
         String actual = driver.findElement(By.xpath("//a[@class='product-name'][normalize-space()='"+ productName +"']")).getText();
         assertEquals(actual, productName);
     }
 
     @And("remove all items from cart")
     public void removeAllItemsFromCart() throws InterruptedException {
+        Thread.sleep(500);
         int productCount = driver.findElements(By.className("remove-btn")).size();
         for(int x = 1; x <= productCount; x++){
             driver.findElement(By.className("remove-btn")).click();

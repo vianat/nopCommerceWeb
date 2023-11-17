@@ -11,7 +11,7 @@
 
     * Java 20
     * Maven
-    * Install browsers: Chrome 119+, Firefox 119+, Edge 119+, Safari
+    * Install browsers: Chrome 119+, Firefox 119+, Edge 119+, Safari 17.1
 
 # Installation
 

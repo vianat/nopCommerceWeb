@@ -20,51 +20,60 @@ public class RegisterTest extends BaseClass {
     Random rand = new Random();
 
     @Then("Verify you on register page and see {string}")
-    public void verifyYouOnRegisterPageAndSee(String expected) {
+    public void verifyYouOnRegisterPageAndSee(String expected) throws InterruptedException {
+        Thread.sleep(500);
         String actual = driver.findElement(By.tagName("h1")).getText();
         assertEquals(actual, expected);
     }
 
     @And("Select female gender")
-    public void selectFemaleGender() {
+    public void selectFemaleGender() throws InterruptedException {
+        Thread.sleep(200);
         rp.genderFemale.click();
     }
 
     @And("Enter valid first name in [first name] field")
-    public void enterValidFirstNameInFirstNameField() {
+    public void enterValidFirstNameInFirstNameField() throws InterruptedException {
+        Thread.sleep(200);
         int random = rand.nextInt(1000 - 1) + 1;
         name = "generateName" + random;
         rp.firstName.sendKeys(name);
     }
 
     @And("Enter valid last name in [last name] field")
-    public void enterValidLastNameInLastNameField() {
+    public void enterValidLastNameInLastNameField() throws InterruptedException {
+        Thread.sleep(200);
         rp.lastName.sendKeys("Last" + name);
     }
 
     @And("Enter valid email in [email] field")
-    public void enterValidEmailInEmailField() {
+    public void enterValidEmailInEmailField() throws InterruptedException {
+        Thread.sleep(200);
         email = name + "@gmail.com";
         rp.email.sendKeys(email);
     }
 
     @And("Enter valid password in [password] field")
-    public void enterValidPasswordInPasswordField() {
+    public void enterValidPasswordInPasswordField() throws InterruptedException {
+        Thread.sleep(200);
         rp.password.sendKeys(password);
     }
 
     @And("Enter valid password in [confirm password] field")
-    public void enterValidPasswordInConfirmPasswordField() {
+    public void enterValidPasswordInConfirmPasswordField() throws InterruptedException {
+        Thread.sleep(200);
         rp.confirmPassword.sendKeys(password);
     }
 
     @And("Click [Register] button for register form")
-    public void clickRegisterButtonForRegisterForm() {
+    public void clickRegisterButtonForRegisterForm() throws InterruptedException {
+        Thread.sleep(200);
         rp.registerBtn.click();
     }
 
     @Then("Verify you see message {string}")
-    public void verifyYouSeeMessage(String expected) {
+    public void verifyYouSeeMessage(String expected) throws InterruptedException {
+        Thread.sleep(500);
         String actual = driver.findElement(By.xpath("//div[@class='result']")).getText();
         assertEquals(actual, expected);
     }

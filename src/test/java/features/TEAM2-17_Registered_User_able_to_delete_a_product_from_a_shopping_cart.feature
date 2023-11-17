@@ -8,25 +8,16 @@ Feature: TEAM2-17 Registered User able to delete a product from a shopping cart
     And Enter email "team-sun@noreply.portnov.com"
     And Enter password "ow!<lSy~2H87"
     And Push Enter
-    And wait 200
     Given I navigate to "https://env-sun.portnov.com/cart"
     And remove all items from cart
     Given I navigate to "https://env-sun.portnov.com/"
-    And wait 200
     And Click on the Computers category
-    And wait 200
     And Click on the Notebooks category
-    And wait 200
     And Click on the product
-    And wait 200
     And Add product to cart
-    And wait 200
     And Click shopping cart
-    And wait 200
     Then Verify the product is added
-    And wait 200
     And remove all items from cart
-    And wait 200
     Then Check if the message "Your Shopping Cart is empty!" appeared
 
     Examples:
@@ -34,4 +25,4 @@ Feature: TEAM2-17 Registered User able to delete a product from a shopping cart
       | firefox |
       | chrome  |
       | edge    |
-      #| safari  |
+      | safari  |

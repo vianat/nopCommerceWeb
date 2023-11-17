@@ -11,21 +11,14 @@ Feature: TEAM2-2 Registered user able to add item to cart
     And Enter email "team-sun@noreply.portnov.com"
     And Enter password "ow!<lSy~2H87"
     And Push Enter
-    And wait 200
     Given I navigate to "https://env-sun.portnov.com/cart"
     And remove all items from cart
     Given I navigate to "https://env-sun.portnov.com/"
-    And wait 200
     And Click on the Computers category
-    And wait 100
     And Click on the Notebooks category
-    And wait 100
     And Click on the product
-    And wait 100
     And Add product to cart
-    And wait 200
     And Click shopping cart
-    And wait 200
     Then Verify the product is added
 
     Examples:
@@ -33,4 +26,4 @@ Feature: TEAM2-2 Registered user able to add item to cart
       | firefox |
       | chrome  |
       | edge    |
-      #| safari  |
+      | safari  |

@@ -10,7 +10,7 @@ public class CartPage extends BaseClass {
 
     @FindBy(xpath = "//button[@id='add-to-cart-button-4']")
     public WebElement addToCart;
-    @FindBy(xpath = "//a[@class='ico-cart']")
+    @FindBy(xpath = "//span[@class='cart-label']")
     public WebElement shoppingCart;
 
     public CartPage(WebDriver driver) {

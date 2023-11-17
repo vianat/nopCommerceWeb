@@ -5,18 +5,14 @@ Feature: TEAM2-1 Add a product
   @web
   Scenario Outline: <browser>
     Given I navigate to "https://env-sun.portnov.com/"
-    And wait 200
     When Click Login button
     And Enter email "team-sun@noreply.portnov.com"
     And Enter password "ow!<lSy~2H87"
     And Push Enter
     Then Make sure you see Log out button and text: "Welcome to our store"
     And I navigate to "https://env-sun.portnov.com/Admin"
-    And wait 200
     And Click Catalog
-    And wait 300
     And Click Products
-    And wait 200
     And Click Add New
     And Fill in Product Name "Samsung Galaxy S23"
     And Fill in Product Short Description "Snapdragon 8 Gen 2 chipset, 8GB RAM"
@@ -31,4 +27,4 @@ Feature: TEAM2-1 Add a product
       | firefox |
       | chrome  |
       | edge    |
-      #| safari  |
+      | safari  |
