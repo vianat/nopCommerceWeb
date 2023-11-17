@@ -4,8 +4,8 @@
 
 ## Description
 
-This project comprises automated tests for a web application using Java, Selenium WebDriver, and Cucumber.
-The tests are designed to validate the functionality of the application using the Behavior Driven Development (BDD) approach.
+    This project comprises automated tests for a web application using Java, Selenium WebDriver, and Cucumber.
+    The tests are designed to validate the functionality of the application using the Behavior Driven Development (BDD) approach.
 
 # Requirements
 
@@ -28,6 +28,6 @@ The tests are designed to validate the functionality of the application using th
 
 # Project Structure:
 
-     src/java/main/pages/ - pom pages code
+     src/java/java/pages/ - pom pages code
      src/test/java/steps/ - test code
      src/test/java/features/ - cucumber scenario files
