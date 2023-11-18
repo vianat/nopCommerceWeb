@@ -20,7 +20,7 @@ public class MainPage extends BaseClass {
     public WebElement digitalDownloads;
     @FindBy(xpath = "//*[contains(text(),'Computers ')]")
     public WebElement Computers;
-    @FindBy(xpath = "//img[@title='Show products in category Notebooks']")
+    @FindBy(xpath = "//a[@title='Show products in category Notebooks'][normalize-space()='Notebooks']")
     public WebElement Notebooks;
     @FindBy(xpath = "//h2[@class='product-title']//a[contains(text(),'FINAL SALE!!!! Apple MacBook Pro 13-inch')]")
     public WebElement appleMac;

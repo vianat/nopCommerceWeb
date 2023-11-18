@@ -19,11 +19,11 @@ public class AddProduct extends BaseClass {
 
     @And("Add product to cart")
     public void addProductToCart() throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1500);
         productName = driver.findElement(By.tagName("h1")).getText();
         cp.addToCart.click();
 
-        Thread.sleep(500);
+        Thread.sleep(1000);
         closeAlert = driver.findElement(By.xpath("//span[@title='Close']"));
         closeAlert.click();
     }

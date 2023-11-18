@@ -23,7 +23,6 @@ public class LoginTest extends BaseClass {
     public void i_navigate_to(String url) throws InterruptedException {
         driver.get(url);
         Thread.sleep(1500);
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 //        Thread.sleep(2000);
     }
 
@@ -56,7 +55,7 @@ public class LoginTest extends BaseClass {
 
     @Then("Make sure you see Log out button and text: {string}")
     public void makeSureYouSeeLogOutButtonAndText(String text) throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         String actual = mp.logOutBtn.getText();
         String expected = "Log out";

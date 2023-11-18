@@ -45,20 +45,28 @@ public class Hooks extends BaseClass {
 		} else {
 			switch (scenario.getName()) {
 				case "edge":
-//					driver = new EdgeDriver();
-					driver = setUpDriver(EdgeDriver.class);
+					driver = new EdgeDriver();
+					driver.manage().window().maximize();
+					driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+//					driver = setUpDriver(EdgeDriver.class);
 					break;
 				case "firefox":
-//					driver = new FirefoxDriver();
-					driver = setUpDriver(FirefoxDriver.class);
+					driver = new FirefoxDriver();
+					driver.manage().window().maximize();
+					driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+//					driver = setUpDriver(FirefoxDriver.class);
 					break;
 				case "safari":
-//					driver = new SafariDriver();
-					driver = setUpDriver(SafariDriver.class);
+					driver = new SafariDriver();
+					driver.manage().window().maximize();
+					driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+//					driver = setUpDriver(SafariDriver.class);
 					break;
 				case "chrome":
-//					driver = new ChromeDriver();
-					driver = setUpDriver(ChromeDriver.class);
+					driver = new ChromeDriver();
+					driver.manage().window().maximize();
+					driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+//					driver = setUpDriver(ChromeDriver.class);
 					break;
 			}
 		}
@@ -66,6 +74,7 @@ public class Hooks extends BaseClass {
 	private WebDriver setUpDriver(Class klass) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 		var driver = (WebDriver)klass.getDeclaredConstructor().newInstance();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		return driver;
 	}
 

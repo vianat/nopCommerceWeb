@@ -1,4 +1,4 @@
-##$ nopCommerceWeb
+## nopCommerceWeb
 
     Web Application Testing Project using Java, Selenium, and Cucumber.
 
@@ -21,7 +21,7 @@
 
 # Running:
 
-    1. Navigate to the project directory:  cd nopCommerceMobile
+    1. Navigate to the project directory.
 
     2. For Mac, run:  mvn test && open  target/cucumber-reports/report.html
        For Win, run:  mvn test && start target/cucumber-reports/report.html

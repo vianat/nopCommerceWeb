@@ -21,7 +21,7 @@ public class RegisterTest extends BaseClass {
 
     @Then("Verify you on register page and see {string}")
     public void verifyYouOnRegisterPageAndSee(String expected) throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1500);
         String actual = driver.findElement(By.tagName("h1")).getText();
         assertEquals(actual, expected);
     }

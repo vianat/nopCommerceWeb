@@ -60,7 +60,7 @@ public class AdminTest extends BaseClass {
 
     @And("Verify that the client has been created and exists in the client list")
     public void verifyThatTheClientHasBeenCreatedAndExistsInTheClientList() throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1000);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + email + "')]")));
         WebElement el = driver.findElement(By.xpath("//*[contains(text(),'" + email + "')]"));
         assertEquals(el.getText(), email);
