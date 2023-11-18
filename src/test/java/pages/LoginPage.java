@@ -8,12 +8,11 @@ import steps.BaseClass;
 
 public class LoginPage extends BaseClass {
 
-    @FindBy(id="Email")
+    @FindBy(css="#Email")
     public WebElement email;
-    @FindBy(id="Password")
+
+    @FindBy(css="#Password")
     public WebElement password;
-    @FindBy(id="RememberMe")
-    public WebElement rememberMe;
 
     public LoginPage(WebDriver driver) {
         driver = BaseClass.driver;

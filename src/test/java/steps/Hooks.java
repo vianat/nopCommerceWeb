@@ -66,7 +66,6 @@ public class Hooks extends BaseClass {
 	private WebDriver setUpDriver(Class klass) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 		var driver = (WebDriver)klass.getDeclaredConstructor().newInstance();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		return driver;
 	}
 

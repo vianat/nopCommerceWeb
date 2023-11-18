@@ -22,12 +22,15 @@ public class LoginTest extends BaseClass {
     @Given("I navigate to {string}")
     public void i_navigate_to(String url) throws InterruptedException {
         driver.get(url);
-        Thread.sleep(1000);
+        Thread.sleep(1500);
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+//        Thread.sleep(2000);
     }
 
     @When("Click Login button")
-    public LoginPage click_login_button() {
+    public LoginPage click_login_button() throws InterruptedException {
         mp.loginBtn.click();
+        Thread.sleep(300);
         return new LoginPage(driver);
     }
 
